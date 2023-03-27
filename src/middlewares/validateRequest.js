@@ -16,7 +16,6 @@ const validateRequest = (schema) => async (req, res, next) => {
     return next();
   } catch (err) {
     let errors = err.errors;
-    console.log(err);
 
     if (process.env.NODE_ENV === 'development') {
       errors = err;
