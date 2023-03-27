@@ -8,20 +8,19 @@ const objectIdSchema = require('../src/yup-schemas/objectIdSchema');
 
 app.use(express.json());
 
-const schema = yup
-  .object({
-    body: yup.object({
-      name: yup.string().default('default string'),
-      username: yup.string(),
-      price: yup.number().min(0).max(10),
-      id: objectIdSchema,
-    }),
-    params: yup.object({
-      id: objectIdSchema,
-    }),
-    // query: reqQuerySchema,
-  })
-  .strict(true);
+const schema = yup.object({
+  body: yup.object({
+    name: yup.string().default('default string'),
+    username: yup.string(),
+    email: yup.string().uppercase(),
+    price: yup.number().min(0).max(10),
+    id: objectIdSchema,
+  }),
+  params: yup.object({
+    id: objectIdSchema,
+  }),
+  query: reqQuerySchema,
+});
 
 app.use('/:id', validateRequest(schema), (req, res, next) => {
   res.status(200).json({

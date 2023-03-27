@@ -5,14 +5,22 @@ const yup = require('yup');
  */
 const reqQuerySchema = yup
   .object({
-    fields: yup.string().transform((value) => value.replaceAll(',', ' ')),
-    itemsPerPage: yup.number().min(1),
-    page: yup.number().min(1),
-    sort: yup.string().transform((value) => value.replaceAll(',', ' ')),
+    fields: yup
+      .string()
+      .transform((value) => value.replaceAll(',', ' '))
+      .max(100),
+    itemsPerPage: yup.number().min(1).max(200),
+    page: yup.number().min(1).max(200),
+    limit: yup.number().min(1).max(200),
+    sort: yup
+      .string()
+      .transform((value) => value.replaceAll(',', ' '))
+      .max(100),
   })
   .transform((value) => {
-    const { fields, itemsPerPage, page, sort, ...filter } = value;
+    let { fields, itemsPerPage, page, sort, limit, ...filter } = value;
 
+    filter = handleQueryList(filter);
     let filterStr = JSON.stringify(filter);
     filterStr = filterStr.replace(
       /\b(gte|gt|lte|lt)\b/g,
@@ -24,8 +32,21 @@ const reqQuerySchema = yup
       page,
       itemsPerPage,
       sort,
-      filter,
+      limit,
+      filter: JSON.parse(filterStr),
     };
   });
+
+function handleQueryList(filter) {
+  const keys = Object.keys(filter);
+
+  keys.forEach((key) => {
+    if (typeof filter[key] === 'string' && filter[key].includes(',')) {
+      filter[key] = { $in: filter[key].split(',') };
+    }
+  });
+
+  return filter;
+}
 
 module.exports = reqQuerySchema;
