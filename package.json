@@ -1,10 +1,10 @@
 {
   "name": "yup-schemas",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This packages include common express middlewares",
   "main": "./src/index.js",
   "scripts": {
-    "update": "npm version patch && npm pub",
+    "update": "npm version patch && npm publish --dry-run",
     "test": "jest --watch",
     "start": "nodemon src/index.js"
   },
