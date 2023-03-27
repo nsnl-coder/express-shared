@@ -10,5 +10,9 @@
     "name": "nsnhatlong",
     "email": "nsnl.coder@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nsnl-coder/express-shared.git"
+  },
   "license": "ISC"
 }
