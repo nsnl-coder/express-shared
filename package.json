@@ -1,11 +1,12 @@
 {
-  "name": "express-shared",
-  "version": "1.0.7",
+  "name": "yup-schemas",
+  "version": "1.0.0",
   "description": "This packages include common express middlewares",
   "main": "./src/index.js",
   "scripts": {
     "update": "npm version patch && npm pub",
-    "test": "jest"
+    "test": "jest --watch",
+    "start": "nodemon src/index.js"
   },
   "author": {
     "name": "nsnhatlong",
@@ -18,5 +19,11 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "supertest": "^6.3.3",
+    "yup": "^1.0.2"
   }
 }

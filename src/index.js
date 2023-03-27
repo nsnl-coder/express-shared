@@ -1,8 +1,5 @@
-const testFunc = () => {
-  console.log('This is really great');
-};
+const objectIdSchema = require('./yup-schemas/objectIdSchema');
+const reqQuerySchema = require('./yup-schemas/reqQuerySchema');
+const validateRequest = require('./middlewares/validateRequest');
 
-module.exports = {
-  // middleware
-  testFunc,
-};
+module.exports = { objectIdSchema, reqQuerySchema };

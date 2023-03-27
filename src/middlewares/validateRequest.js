@@ -15,10 +15,15 @@ const validateRequest = (schema) => async (req, res, next) => {
     req.params = params;
     return next();
   } catch (err) {
+    let errors = err.errors;
+    if (process.env.NODE_ENV === 'development') {
+      errors = err;
+    }
+
     return res.status(400).json({
       status: 'fail',
       message: 'Data validation failed',
-      errors: err.errors,
+      errors,
     });
   }
 };
