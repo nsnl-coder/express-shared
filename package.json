@@ -4,7 +4,7 @@
   "description": "This packages include common express middlewares",
   "main": "./src/index.js",
   "scripts": {
-    "update": "npm version patch && npm publish",
+    "update": "npm version patch && npm pub",
     "test": "jest --watch",
     "start": "nodemon src/index.js"
   },

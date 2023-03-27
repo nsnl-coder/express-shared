@@ -1,4 +1,5 @@
 const yup = require('yup');
+const objectIdSchema = require('./objectIdSchema');
 
 const reqParamsSchema = yup.object({
   id: objectIdSchema,
