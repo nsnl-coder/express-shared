@@ -4,7 +4,8 @@
   "description": "This packages include common express middlewares",
   "main": "./src/index.js",
   "scripts": {
-    "update": "npm version patch && npm pub"
+    "update": "npm version patch && npm pub",
+    "test": "jest"
   },
   "author": {
     "name": "nsnhatlong",
@@ -14,5 +15,8 @@
     "type": "git",
     "url": "git@github.com:nsnl-coder/express-shared.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }
