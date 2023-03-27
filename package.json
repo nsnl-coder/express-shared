@@ -1,10 +1,10 @@
 {
   "name": "yup-schemas",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This packages include common express middlewares",
   "main": "./src/index.js",
   "scripts": {
-    "update": "npm version patch && npm publish --dry-run",
+    "update": "npm version patch && npm publish",
     "test": "jest --watch",
     "start": "nodemon src/index.js"
   },
@@ -17,13 +17,12 @@
     "url": "git@github.com:nsnl-coder/yup-schemas.git"
   },
   "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
-    "jest": "^29.5.0",
-    "supertest": "^6.3.3"
-  },
-  "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
-    "yup": "^1.0.2"
+    "yup": "^1.0.2",
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3"
   }
 }
