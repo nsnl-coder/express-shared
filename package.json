@@ -1,6 +1,6 @@
 {
   "name": "yup-schemas",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "This packages include common express middlewares",
   "main": "./src/index.js",
   "scripts": {
