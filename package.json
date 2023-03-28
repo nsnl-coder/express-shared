@@ -1,17 +1,24 @@
 {
   "name": "yup-schemas",
   "version": "1.0.15",
-  "description": "This packages include common express middlewares",
+  "description": "Pre-build express middlewares and yup schemas to validate and parse request.",
   "main": "./src/index.js",
+  "author": {
+    "name": "nsnhatlong",
+    "email": "nsnl.coder@gmail.com"
+  },
   "scripts": {
     "update": "npm version patch && npm pub",
     "test": "jest --watch",
     "start": "nodemon src/index.js"
   },
-  "author": {
-    "name": "nsnhatlong",
-    "email": "nsnl.coder@gmail.com"
-  },
+  "keywords": [
+    "yup",
+    "mongoose",
+    "express",
+    "expressjs",
+    "yup schemas"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:nsnl-coder/yup-schemas.git"
