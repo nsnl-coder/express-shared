@@ -9,10 +9,10 @@ const reqQuerySchema = yup
       .string()
       .transform((value) => value.replaceAll(',', ' '))
       .max(100),
-    page: yup.number().min(1).max(200),
-    itemsPerPage: yup.number().min(1).max(200),
-    skip: yup.number().min(1).max(200),
-    limit: yup.number().min(1).max(200),
+    page: yup.number().integer().min(1).max(200),
+    itemsPerPage: yup.number().integer().min(1).max(200),
+    skip: yup.number().integer().min(1).max(200),
+    limit: yup.number().integer().min(1).max(200),
     sort: yup
       .string()
       .transform((value) => value.replaceAll(',', ' '))
