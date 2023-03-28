@@ -4,7 +4,7 @@ const yup = require('yup');
 /**
  * mongodb objectid schema
  */
-const objectIdSchema = yup
+const objectId = yup
   .string()
   .test(
     'is-object-id',
@@ -13,4 +13,4 @@ const objectIdSchema = yup
       value === undefined ||
       (ObjectId.isValid(value) && String(new ObjectId(value)) === value),
   );
-module.exports = objectIdSchema;
+module.exports = objectId;

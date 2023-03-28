@@ -1,12 +1,16 @@
 const validateRequest = require('./middlewares/validateRequest');
 //
-const objectIdSchema = require('./yup-schemas/objectIdSchema');
-const reqQuerySchema = require('./yup-schemas/reqQuerySchema');
-const reqParamsSchema = require('./yup-schemas/reqParamsSchema');
+const objectId = require('./yup-schemas/objectId');
+const objectIdArray = require('./yup-schemas/objectIdArray');
+const reqQuery = require('./yup-schemas/reqQuery');
+const reqParams = require('./yup-schemas/reqParams');
 
 module.exports = {
-  objectIdSchema,
-  reqQuerySchema,
   validateRequest,
-  reqParamsSchema,
+
+  // schemas
+  objectId,
+  objectIdArray,
+  reqQuery,
+  reqParams,
 };

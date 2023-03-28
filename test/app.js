@@ -3,8 +3,9 @@ const app = express();
 const yup = require('yup');
 
 const validateRequest = require('../src/middlewares/validateRequest');
-const reqQuerySchema = require('../src/yup-schemas/reqQuerySchema');
-const objectIdSchema = require('../src/yup-schemas/objectIdSchema');
+const reqQuery = require('../src/yup-schemas/reqQuery');
+const reqParams = require('../src/yup-schemas/reqParams');
+const objectId = require('../src/yup-schemas/objectId');
 
 app.use(express.json());
 
@@ -14,12 +15,10 @@ const schema = yup.object({
     username: yup.string(),
     email: yup.string().uppercase(),
     price: yup.number().min(0).max(10),
-    id: objectIdSchema,
+    id: objectId,
   }),
-  params: yup.object({
-    id: objectIdSchema,
-  }),
-  query: reqQuerySchema,
+  params: reqParams,
+  query: reqQuery,
 });
 
 app.use('/:id', validateRequest(schema), (req, res, next) => {

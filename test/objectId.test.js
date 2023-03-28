@@ -1,6 +1,5 @@
 const request = require('supertest');
 const { app } = require('./app');
-const objectIdSchema = require('../src/yup-schemas/objectIdSchema');
 
 it('should return 400 if objectid is not valid', async () => {
   // random string is not valid
