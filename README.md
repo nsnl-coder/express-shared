@@ -32,16 +32,16 @@ const {
 
 ## Detail
 
-- `validateRequest`: accept yup schema as input and validate req.body. Return 400 error if validation failed.
+- `validateRequest`: accept yup schema as input and validate `req.body`. Return 400 error if validation failed.
 
 - `requiredFields`: accepts a string or multiple strings and check if they are defined. Return 400 error if the required fields are not defined.
 
 ## You can use these pre-build yup schemas to:
 
-- `reqParams`: check if req.params.id is valid objectId
-- `reqQuery`: validate and parse req.query
-- `objectId`: check if a field is valid objectId
-- `objectIdArray`: check if a field is array of objectIds
+- `reqParams`: check if `req.params.id` is a valid `objectId`
+- `reqQuery`: validate and parse `req.query`
+- `objectId`: check if a field is a valid `objectId`
+- `objectIdArray`: check if a field is array of `objectIds`
 
 ## How to use ?
 

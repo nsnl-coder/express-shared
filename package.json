@@ -1,6 +1,6 @@
 {
   "name": "yup-schemas",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Pre-build express middlewares and yup schemas to validate and parse request.",
   "main": "./src/index.js",
   "author": {
