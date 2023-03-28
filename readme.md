@@ -1,10 +1,10 @@
 # yup schemas for express, mongoose
 
-#### How to install
+## How to install
 
     $ npm install yups-schema
 
-#### What can yup schemas do?
+## What can yup schemas do?
 
 For example, with **reqQuery**, you can easily implement features such as:
 
@@ -14,7 +14,7 @@ For example, with **reqQuery**, you can easily implement features such as:
 - sorting
 - filtering
 
-#### Introduction
+## Introduction
 
 This package exports 2 middlewares and 4 pre-build schemas:
 
@@ -30,20 +30,20 @@ const {
 } = require('yups-schema');
 ```
 
-#### Detail
+## Detail
 
 - `validateRequest`: accept yup schema as input and validate req.body. Return 400 error if validation failed.
 
 - `requiredFields`: accepts a string or multiple strings and check if they are defined. Return 400 error if the required fields are not defined.
 
-### You can use these pre-build yup schemas to:
+## You can use these pre-build yup schemas to:
 
 - `reqParams`: check if req.params.id is valid objectId
 - `reqQuery`: validate and parse req.query
 - `objectId`: check if a field is valid objectId
 - `objectIdArray`: check if a field is array of objectIds
 
-### How to use ?
+## How to use ?
 
 To use yup-schemas, you first need to install yup:
 
@@ -85,11 +85,11 @@ router.use(
 );
 ```
 
-### Here are some examples how `reqQuery` parse your query
+## Here are some examples how `reqQuery` parse your query
 
 There are 2 types of queries: special queries & normal queries
 
-#### How special queries being parsed:
+## How special queries being parsed:
 
 Special queries includes: `page, itemsPerPage, sort, fields, skip, limit`
 
@@ -102,7 +102,7 @@ Special queries includes: `page, itemsPerPage, sort, fields, skip, limit`
 | /products?skip=1                   | `{ skip : 1, filter : {} }`                   |
 | /products?limit=1                  | `{ limit : 1, filter : {} }`                  |
 
-#### How other queries being parsed:
+## How other queries being parsed:
 
 | endpoint                                  | req.query                                                         |
 | ----------------------------------------- | ----------------------------------------------------------------- |
@@ -114,7 +114,7 @@ Special queries includes: `page, itemsPerPage, sort, fields, skip, limit`
 | /products?price[lt]=4                     | `{ filter : { price: { $lt: 4 }} }`                               |
 | /products?price[lte]=4                    | `{ filter : { price: { $lte: 4 }} }`                              |
 
-#### Example
+## Example
 
 Implement pagination, limit fields, sorting and filter using **reqQuery**.
 
