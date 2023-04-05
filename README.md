@@ -4,7 +4,7 @@ This package for project using: `express`, `mongoose` and `yup`.
 
 ## How to install
 
-    $ npm install yups-schema
+    $ npm install yup-schemas
 
 ## What can yup schemas do?
 
