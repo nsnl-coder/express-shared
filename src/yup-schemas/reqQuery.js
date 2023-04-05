@@ -19,7 +19,17 @@ const reqQuerySchema = yup
       .max(100),
   })
   .transform((value) => {
-    let { fields, page, itemsPerPage, sort, skip, limit, ...filter } = value;
+    let {
+      fields,
+      page,
+      itemsPerPage,
+      sort,
+      skip,
+      limit,
+      searchBy,
+      keyword,
+      ...filter
+    } = value;
 
     filter = handleQueryList(filter);
     let filterStr = JSON.stringify(filter);
@@ -28,6 +38,8 @@ const reqQuerySchema = yup
       (match) => `$${match}`,
     );
 
+    const filterObject = JSON.parse(filterStr);
+
     return {
       fields,
       page,
@@ -35,9 +47,45 @@ const reqQuerySchema = yup
       sort,
       skip,
       limit,
-      filter: JSON.parse(filterStr),
+      filter: {
+        ...filterObject,
+        ...handleSearch(searchBy, keyword),
+      },
     };
   });
+
+function handleSearch(searchBy, keyword) {
+  if (!searchBy || !keyword) return {};
+  if (typeof keyword !== 'string') return {};
+
+  if (typeof searchBy === 'string' && !searchBy.includes(',')) {
+    return {
+      [searchBy]: {
+        $regex: keyword,
+        $options: 'i',
+      },
+    };
+  }
+
+  if (typeof searchBy === 'string' && searchBy.includes(',')) {
+    searchBy = searchBy.split(',');
+  }
+
+  if (!Array.isArray(searchBy)) return {};
+
+  const matchArr = searchBy.map((key) => {
+    return {
+      [key]: {
+        $regex: keyword,
+        $options: 'i',
+      },
+    };
+  });
+
+  return {
+    $or: matchArr,
+  };
+}
 
 function handleQueryList(filter) {
   const keys = Object.keys(filter);

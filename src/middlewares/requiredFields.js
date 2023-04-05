@@ -4,6 +4,7 @@ const requiredFields =
     const errors = [];
 
     fields.forEach((field) => {
+      if (!field.trim()) console.log('A required field should be truthy');
       if (!req.body[field]) errors.push(`${field} is required`);
     });
 
