@@ -8,6 +8,7 @@ const validateRequest = (schema) => async (req, res, next) => {
       },
       {
         abortEarly: false,
+        stripUnknown: true,
       },
     );
     req.body = body;
